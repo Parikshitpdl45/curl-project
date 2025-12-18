@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Curl Project Visualization</title>
+</head>
+<body>
+    <h2>record.txt data</h2>
+    <pre id="output">Loading...</pre>
+
+    <script>
+        async function loadData() {
+            const res = await fetch("record.txt?ts=" + Date.now());
+            const text = await res.text();
+            document.getElementById("output").textContent =
+                text || "No data yet";
+        }
+        loadData();
+    </script>
+</body>
+</html>
